@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+
+void main()
+{
+	//lecture 04
+	//working with 1D static array
+	int arr[5] = { 1,2,3,4,5 };
+	int* p = nullptr;
+	arr[0] = 10; //updated value of 0th index
+	*(arr + 2) = 15; // updated value at 3rd index
+	p = arr; // saving address of 0th element to pointer 
+	for (int i = 0; i < 5; i++)
+	{
+		cout << arr[i]<<"\t"; // or we can write *(arr+i)
+	}
+	cout << endl;
+	//We can treverse the array by pointer
+
+	for (; p < &arr[5]; p++) // moving pointer untill &arr[5]
+	{
+		cout << *p<<"\t";
+	}
+}

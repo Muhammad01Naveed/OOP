@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	//Lecture 01
+	//Pointer points to the memory location
+	// int *p       its pointer to integer instead of integer pointer 
+	// just holde the value to integer variable
+	int x = 10;
+	int* p = &x;                //holding the address of integer variable x
+	cout << x << endl;    //printing the value of variable x
+	cout <<&x<<endl;   // printing the memory address of varaible x
+	cout << *p << endl;  // derefrencing pionter: printing value of x
+	cout << p << endl;     // printing the memory address of varaible x through pointer
+	cout << &p << endl;  // printing the memory address of the pointer variable
+	system("pause");
+	return 0;
+}

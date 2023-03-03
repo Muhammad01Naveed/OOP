@@ -1,0 +1,49 @@
+
+ #include <iostream>
+ #include <string.h>
+#include<string>
+#include<cstring>
+ #include <iomanip>
+
+using namespace std;
+
+class Dummy
+{    // Topics to be covered
+	// User Defined Copy constructor
+	// Deep Copy
+	
+private:
+	int a, *b;
+public:
+	Dummy() {
+		a = 10;
+		b = new int; // creating dynamically 
+		*b = 20; 
+	}
+	Dummy(const Dummy& Obj) {  // Deep copy
+		b = new int;
+		this->a = Obj.a;
+		*this->b = *(Obj.b);  
+		//Or you can write
+		// *b=*(Obj.b);
+		
+	}
+	void display()const {
+		cout << "\n The value of A:" << a;
+		cout << "\n The value of B:" << *b;
+	}
+~Dummy() {
+		delete b;
+	}
+};
+
+ int main()
+ {
+	 Dummy D1;
+	 //Deep Copy
+	 Dummy D2(D1); // Calling User defined copy constructor for deep copy
+	 D2.display();
+	return 0;
+	}
+
+ 

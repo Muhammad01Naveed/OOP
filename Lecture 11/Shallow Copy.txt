@@ -1,0 +1,40 @@
+
+ #include <iostream>
+ #include <string.h>
+#include<string>
+#include<cstring>
+ #include <iomanip>
+
+using namespace std;
+
+class Dummy
+{    // Topics to be covered
+	// Default copy costructor
+	// Implicit copy assignment operator
+	// Shallow copy
+private:
+	int a, *b;
+public:
+	Dummy() {
+		a = 10;
+		b = new int; // creating dynamically 
+		*b = 20; 
+	}
+	void display()const {
+		cout << "\n The value of A:" << a;
+		cout << "\n The value of B:" << b;
+	}
+};
+
+ int main()
+ {
+	 Dummy D1;
+	 //Shallow Copy
+	 Dummy D2 = D1; // Calling default copy constructor
+	 Dummy D3;
+	 D3 = D2; // Calling implicit copy assignment operator
+
+	return 0;
+	}
+
+ 

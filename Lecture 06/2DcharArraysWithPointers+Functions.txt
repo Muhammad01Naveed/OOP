@@ -1,0 +1,64 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+//Function needs to know rows in order to process the Subjectnames
+void DisplayInputsubjectname(char** mysubjects, const int& rows)
+{
+	cout<<"\n\n\nDisplaying Subject Names:\n\n";
+	for(int i=0; i<rows; i++)
+	{
+		
+			cout<< mysubjects[i];		
+			
+		cout<<endl;
+	}	
+}
+
+char** Inputsubjectname(int& rows, int& cols)
+{
+	cout << "Enter total number of rows:\t";
+	cin >> rows;
+
+	cout << "Enter total number of columns:\t";
+	cin >> cols;
+
+	//Dynamically create matrix
+	char** subjectname = new char*[rows];	//subjectname  stores the address of first char pointer of this array(of char pointers).
+	for (int i = 0; i<rows; i++)
+		subjectname[i] = new char[cols];	//Each char pointer saves the address of first char of this array (of characters).
+
+	//Initializing subjectname 
+	int k = 0;
+	for (int i = 0; i<rows; i++)
+	{
+		cin.ignore();
+		cout << "Enter Name of Subject:" << i + 1 << "::";
+		
+		cin.getline(subjectname[i], cols);
+		cout << endl;
+		
+	}
+	
+	return subjectname;
+}
+
+void main()
+{
+	char** subjectname = nullptr;	//subjectname is a pointer to character pointer. It can save address of character pointer only.
+	int rows, cols;
+
+	subjectname = Inputsubjectname(rows, cols);
+
+	DisplayInputsubjectname(subjectname, rows);
+
+	
+
+	/
+
+	//Deallocate subjectname space
+	for(int i = 0 ; i<rows ; i++)
+		delete[] subjectname[i];	//Delete all character arrays which are being pointed by int pointers
+	delete[] subjectname;	//Delete array of char pointers which is being pointed by int**
+
+}

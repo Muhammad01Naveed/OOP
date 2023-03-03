@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	//Lecture 02
+	//Difference between pointer and reference
+
+	int x = 15;
+//pointer 
+	  // point to the momery address and has gained space in memory
+	  // Address can be assigned at both declaration and intialization time
+	int* p = &x;
+     // or
+	int* p;
+	p = &x;
+
+// Reference
+	  // Reference variable is alias of the other variable
+	  // Does not get any space in memory
+	  // Must intialize at the time of declaration
+	int& y = x; //Its like another name of x
+	int y;
+	&y = x;  // not allowed in refrence varaible
+
+	system("pause");
+	return 0;
+}

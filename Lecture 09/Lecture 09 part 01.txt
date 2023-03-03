@@ -1,0 +1,64 @@
+
+ #include <iostream>
+ #include <string>
+ #include <iomanip>
+ using namespace std;
+ 
+ class Rectangle
+ {
+ private:  // Access Specifier,
+	 int Length, Width;   // Data Members,Can not access outside the class
+ public:
+	 // Default constructor
+	 Rectangle() {
+		 Length = Width = 10;
+	 }
+	 //Overloaded constructors
+	 Rectangle(int l) {
+		 Length = l;
+			 Width = 10;
+	 }
+	
+	 Rectangle(int l ,int w) {
+		 Length = l;
+		 Width = w;
+	 }
+	 void setlength(int L)      // inline function
+                        {
+		 Length = L;
+	 }
+	 void setwidth(int W) 
+	 {
+		 Width = W;
+	 }
+	 int getlength() const;
+	 int getwidth() const;
+	
+ };         
+ int Rectangle::getlength() const   // Defination of the body outside the class
+ {
+	 return Length;
+ }
+ int Rectangle::getwidth()const
+ {
+	 return Width;
+ }
+ int main()
+ {
+	  int l=10, w=20;
+	  Rectangle R1;// calling default constructor
+	  Rectangle R2(4);// calling overloaded constructor having one argument
+	  Rectangle(4, 6);// calling overloaded constructor having two arguments
+	
+	  // we can set the value by using mutators functions
+	 R1.setlength(l);
+	 R1.setwidth(w);
+
+	 cout << "\nThe Length of the Rectangle::" << R1.getlength();// accesing accesor function
+	 
+	 //Or we can store returned data in a seperate variale to display
+	 int wi = R1.getwidth();
+	 cout << "\nThe width of the Rectangle::" <<wi;
+	
+
+ }

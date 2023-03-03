@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	//Lecture 01
+	//Relational and arithematic operations
+	//you can perform any relational and arithetic operations with derefrenced pointer
+	// without difference you are not allowed to perform *,+,/
+
+	int x = 10;
+	int* p = nullptr; // set pointer to 0 value
+	p = &x;
+	if (*p > 8)  //relational operation 
+	{
+		cout << "Yes";
+		*p++;   //increment the value of x though pointer,arithematic operation
+
+	}
+	system("pause");
+	return 0;
+}

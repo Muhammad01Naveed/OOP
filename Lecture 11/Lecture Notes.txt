@@ -1,0 +1,23 @@
+                      Copy
+
+Default copy constructor
+we do not define used defined copy constructor then compiler itself creates default copy constructor
+Studen S1
+Student S2=S1  // calling default copy construtor
+
+
+implicit copy assignment operator
+If you dont copy the one object to another object at time of creation then copy will be 
+through assignment operator instead of default copy constructor
+
+Student S1,S2;
+S2=S1 // Calling copy assignment operator
+
+Shallow copy
+
+default copy constructor and copy assignment operator is shallow copy
+
+Deep Copy
+It will need when you have data member that have dynamically created and you want 
+to copy the one object data to another object then you need to define user define copy 
+constructor.

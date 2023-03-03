@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	//Lecture 03
+	// Dynamic Memory
+	// New and delete are used to create and delete dynamic memory
+
+	int y = 10;  // y got the memory on stack
+	int* p = new int; // getting momery on heap
+		* p = 11;
+		cout << *p << endl; // accessing value 
+		cout << p << endl;  //accessing memory
+		delete p; //releasing memory from heap
+
+// Memory leakage and dangling pointers
+
+		int* p1 = new int;
+		*p1 = 11;
+		int* p2 = p;//p2 pointing to the memory adress of p
+
+		delete p1; // p1 memory address deleted
+		cout << p2; // now p2 pointing to momery address that does not exists 
+		            // p2 now is dangling pointer
+
+		int* p3 = new int;
+		*p3 = 20;
+		int* p3 = new int; // creating new momery for p3 again
+		 //whats about previous memory of p3 ,that is not deleted so memory leakage
+
+
+
+	system("pause");
+	return 0;
+}

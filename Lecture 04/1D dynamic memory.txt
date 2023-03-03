@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+
+void main()
+{
+	//lecture 04
+	//working with 1D Dynamic  array
+	int *arr=new int[5];
+	int* p = nullptr;
+	
+
+	for (int i = 0; i < 5; i++)
+	{
+		cin>>arr[i] ; // or we can write *(arr+i)
+	}
+
+	arr[0] = 10; //updated value of 0th index
+	*(arr + 2) = 15; // updated value at 3rd index
+	p = arr; // saving address of 0th element to pointer 
+	for (int i = 0; i < 5; i++)
+	{
+		cout <<*(arr+i)<<"\t"; 
+	}
+	cout << endl;
+	//We can treverse the array by pointer
+
+	for (; p < &arr[5]; p++) // moving pointer untill &arr[5]
+	{
+		cout << *p<<"\t";
+	}
+
+	delete[] arr; //deleting dynamic array;
+	p = nullptr; // set pointer to null
+}

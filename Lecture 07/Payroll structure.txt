@@ -1,0 +1,88 @@
+// This program demonstrates the use of structures. 
+ #include <iostream>
+ #include <string>
+ #include <iomanip>
+ using namespace std;
+
+ struct PayRoll
+ {
+	 int empNumber; // Employee number 
+	 char name[30]; // Employee's name 
+	 double hours; // Hours worked 
+	 double payRate; // Hourly payRate 
+	 double grossPay; // Gross pay 
+	 };
+
+ int main()
+ {
+	 PayRoll employee = { 4,"Ahmed",20,2.5,30000}; // employee is a PayRoll structure. 
+	 PayRoll employee1 = { 5 };// you can left other variables intialize
+	 PayRoll Emp[5];// creating list of 5 employees
+		 // Get the employee's number. 
+		 cout << "Enter the employee's number: ";
+	 cin >> employee.empNumber;
+	
+		 // Get the employee's name. 
+		 cout << "Enter the employee's name: ";
+	 cin.ignore(); // To skip the remaining ‘\n' character 
+	 cin.getline( employee.name,30);
+	
+		 // Get the hours worked by the employee. 
+		 cout << "How many hours did the employee work? ";
+	 cin >> employee.hours;
+	
+		 // Get the employee's hourly pay rate. 
+		 cout << "What is the employee's hourly payRate? ";
+	 cin >> employee.payRate;
+	
+		 // Calculate the employee's gross pay. 
+		 employee.grossPay = employee.hours * employee.payRate;
+	
+		 // Display the employee data. 
+		 cout << "Here is the employee's payroll data:\n";
+	 cout << "Name: " << employee.name << endl;
+	 cout << "Number: " << employee.empNumber << endl;
+	 cout << "Hours worked: " << employee.hours << endl;
+	 cout << "Hourly payRate: " << employee.payRate << endl;
+	 cout << fixed << showpoint << setprecision(2);
+	 cout << "Gross Pay: $" << employee.grossPay << endl;
+
+	 //Input data for list of employees
+	 for (int i = 0; i < 5; i++)
+	 {
+		 // Get the employee's number. 
+		 cout << "Enter the employee's number: ";
+		 cin >> Emp[i].empNumber;
+
+		 // Get the employee's name. 
+		 cout << "Enter the employee's name: ";
+		 cin.ignore(); // To skip the remaining ‘\n' character 
+		 cin.getline(Emp[i].name, 30);
+
+		 // Get the hours worked by the employee. 
+		 cout << "How many hours did the employee work? ";
+		 cin >> Emp[i].hours;
+
+		 // Get the employee's hourly pay rate. 
+		 cout << "What is the employee's hourly payRate? ";
+		 cin >> Emp[i].payRate;
+
+		 // Calculate the employee's gross pay. 
+		 Emp[i].grossPay = Emp[i].hours * Emp[i].payRate;
+
+
+	 }
+
+	 // Display the list of employees data. 
+	 for (int i = 0; i < 5; i++)
+	 {
+		 cout << "Here is the employee's payroll data:\n";
+		 cout << "Name: " << Emp[i].name << endl;
+		 cout << "Number: " << Emp[i].empNumber << endl;
+		 cout << "Hours worked: " << Emp[i].hours << endl;
+		 cout << "Hourly payRate: " << Emp[i].payRate << endl;
+		 cout << fixed << showpoint << setprecision(2);
+		 cout << "Gross Pay: $" << Emp[i].grossPay << endl;
+	 }
+	 return 0;
+	}

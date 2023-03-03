@@ -1,0 +1,145 @@
+
+ #include <iostream>
+ #include <string.h>
+#include<string>
+#include<cstring>
+ #include <iomanip>
+
+using namespace std;
+// ContactInfo class declaration. 
+class Student
+{    // Topics to be covered
+	// Pointer Object
+	// This pointer
+	// comparing objects,Passing object to function
+	// Dynamic datamember
+	//Static datamember
+	//Const datamember
+	// Member intialzing list
+	//Const Object
+	// Array of Objects
+private:
+	string name;
+	int* subject; // need to allocate memory dynamically
+	static int count;  // count will keep the record how many students objects has been created
+	const int totalMarks;
+public:
+	Student(string name="Anonymus") :totalMarks(300)  // Member intialzing list
+	{
+		this->name = name; // this is a local pointer object of the caller object ,that can not be modify
+		subject = new int[3];
+		for (int i = 0; i < 3; i++) {
+			subject[i] = 0;
+		}
+		count++;  // Increment to count while the object created
+	}
+	void setdata() {
+		cin.ignore();
+		cout << "\nEnter Student Name:\t";
+		getline(cin, name);
+
+		for (int i = 0; i < 3; i++) {
+			cout << "\nEnter Subject\t" << i + 1 << "\tMarks:";
+			cin >> subject[i];
+		}
+	}
+	void display()const
+	{
+		float sum = 0.0;
+		cout << "Student Name:" << name;
+		cout << "\n Subjects Marks";
+		for (int i = 0; i < 3; i++) {
+			cout << "\n Subject" << i + 1 << ":" << subject[i];
+			sum += subject[i];
+		}
+		cout << "\n Percent:\t" << (sum / totalMarks) * 100.0;
+	}
+	bool Biggerone(const Student& Obj)  // Passing object by referece and making const to freez the changes
+	{
+		// The student has greater marks is the biggerone
+		int Objsum = 0, thissum = 0;
+		// calculating sum of Obj object 
+		for (int i = 0; i < 3; i++) {
+			Objsum += Obj.subject[i];
+		}
+		// calculating sum of caller object 
+		for (int i = 0; i < 3; i++) {
+			thissum += this->subject[i];
+		}
+		if (thissum > Objsum)
+		{
+			return true;
+		}
+		else {
+			return false;
+		}
+
+	}
+	static void NumofObj()   // Static datamember always can get by static member function
+	{
+		cout << "\tThe Total Students Objects that are created :\t" << count;
+	}
+	~Student()
+	{
+		delete[]subject; // releasing memory from dynamic datamember
+	}
+};
+int Student::count = 0; // Intialzing static data member
+ int main()
+ {
+	 Student S1("M Naveed"),S2("Ali");
+	 Student* ptrs; // Ptrs is pointer object that can hold the address of object
+	 ptrs = &S1;   
+	 ptrs->setdata(); // -> will use when you access the memberfunction through pointer object
+	 S1.display();
+	 cout << endl;
+	 cout << endl;
+	 S2.setdata();
+	 S2.display();
+
+	 cout << "\nThe Student having greater marks";
+	 if (S1.Biggerone(S2))
+	 {
+		 cout << "\nStudent 1 got greater marks than Student 2";
+	 }
+	 else
+	 {
+		 cout << "\nStudent 2 got greater marks than Student 1";
+	 }
+	 cout << endl;
+	 cout << endl;
+	 // const Object, const object can change its data after the creating
+	 const Student S3("Ahmed");
+	 //S3.setdata();   // const object just can no callto  the non const function
+	 S3.display();// Display is const function that's why its allowed.
+
+
+
+	 /// Array of Objects
+
+	 Student Sarray[3];
+	 // accessing member function through class Objects
+	 cout << endl;
+	 cout << endl;
+	 for (int i = 0; i < 3; i++)
+	 {
+		 Sarray[i].setdata();
+	 }
+	 cout << endl;
+	 cout << endl;
+	 //display data of student array Objects
+	 for (int i = 0; i < 3; i++)
+	 {
+		 Sarray[i].display();
+	 }
+
+
+	 cout << endl;
+	 cout << endl;
+	 Student::NumofObj();  // Static Memeber function just be called with class name
+	 cout << endl;
+	 cout << endl;
+	return 0;
+	}
+
+ 

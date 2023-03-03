@@ -1,0 +1,54 @@
+
+ #include <iostream>
+ #include <string.h>
+#include<cstring>
+ #include <iomanip>
+
+using namespace std;
+// ContactInfo class declaration. 
+class ContactInfo
+{
+private:
+char* name; // The name 
+char* phone; // The phone number 
+public:
+	// Constructor 
+	 ContactInfo(const char *n, const char* p)
+	 { // Allocate just enough memory for the name and phone number. 
+		name = new char[strlen(n) + 1];
+		phone = new char[strlen(p) + 1];
+		
+		// Copy the name and phone number to the allocated memory. 
+		strcpy_s(name,strlen(n) + 1, n); // strcpy basically takes des,size,src
+		strcpy_s(phone, strlen(p) + 1, p);
+		
+		 }
+	
+		 // Destructor 
+		~ContactInfo()
+		{ 
+		delete[] name;
+	    delete[] phone; 
+		}
+	
+ const char* getName() const
+		{ 
+	 return name; 
+         }
+ const char* getPhoneNumber() const
+	 { return phone; }
+ 
+};
+
+ int main()
+ {
+	// Define a ContactInfo object with the following data: 
+		 // Name: Kristen Lee Phone Number: 555-2021 
+		ContactInfo *entry=new ContactInfo("Kristen Lee","555 - 2021"); // Dynamically creating object
+	
+	// Display the object's data. 
+	cout << "Name: " << entry->getName() << endl;
+	cout << "Phone Number: " << entry->getPhoneNumber() << endl;
+	delete entry; //releasing memory
+	return 0;
+	}

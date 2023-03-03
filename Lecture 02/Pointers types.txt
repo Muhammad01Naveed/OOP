@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	//Lecture 02
+	//pointer types 
+	// simple pointer,pointer to const value
+	// const pointer
+	// const pointer to const value
+	
+//part1:  Pointer types working when they point to const variable
+	
+	//if any type of pointer point to const variable
+	//then it can not change the value of that variable
+
+	 const int  x = 10;
+	 int* p = &x; // Simple pointer can not hold cosnt variable
+	 
+	 // pointer to const value, Pointer can not the value but can updates own address
+	 const int* p = &x;
+	 x = 11;  // not allowed ,x is const variable
+	 *p = 11; // not allowed ,pointer pointing const memory address,p can point to other memory
+
+		 // const pointer //pointer can not point to other memory onced pointed.
+		 int* const p = &x; //not allowed because x is const variable,
+
+		 // const pointer to const value ,Value and address both can be changed once pointed
+		 const int* const p = &x; 
+		 
+ //Part 2: Pointer types working when they point to non-const variable
+		 int y = 10;
+		 //const pointer
+		 const int* p = &y;
+		 //const pointer
+		 int const* p = &y;
+		 // const pointer to const value
+		 const int* const p = &y;
+	system("pause");
+	return 0;
+}

@@ -1,0 +1,60 @@
+
+ #include <iostream>
+ #include <string>
+ #include <iomanip>
+ using namespace std;
+ 
+ class Rectangle
+ {
+ private:  // Access Specifier,
+	 int *Length, *Width;   // Data Members,Can not access outside the class
+ public:
+	 // Default constructor with default arguments
+	 Rectangle(int l=4, int w=26) {
+		 Length = new int;
+		 *Length = l;
+		 Width = new int;
+		 *Width = w;
+	 }
+	 void setlength(int L) 
+	 {
+		 *Length = L;
+	 }
+	 void setwidth(int W) 
+	 {
+		 *Width = W;
+	 }
+	 int getlength() const;
+	 int getwidth() const;
+	 ~Rectangle() {                // Destructor
+		 cout << "\nDestructor is called";
+		 delete Length, Width; // releasing dynamic memory
+	}
+ };         
+ int Rectangle::getlength() const   // Defination of the body outside the class
+ {
+	 return *Length;
+ }
+ int Rectangle::getwidth()const
+ {
+	 return *Width;
+ }
+ int main()
+ {
+	  int l=10, w=20;
+	  Rectangle R1(4, 6);
+	  Rectangle* Rptr = &R1; // Rptr is pointer Object and having the address of R1
+
+	
+	  // we can set the value by using mutators functions
+	 R1.setlength(l);
+	 R1.setwidth(w);
+
+	 cout << "\nThe Length of the Rectangle::" << R1.getlength();// accesing accesor function
+	 
+	 //Or we can store returned data in a seperate variale to display
+	 int wi = Rptr->getwidth(); // -> used when call the function by Pointer Object
+	 cout << "\nThe width of the Rectangle::" <<wi;
+	
+
+ }

@@ -1,0 +1,47 @@
+
+ #include <iostream>
+ #include <string>
+ #include <iomanip>
+ using namespace std;
+ 
+ class Rectangle
+ {
+ private:  // Access Specifier,
+	 int Length, Width;   // Data Members,Can not access outside the class
+ public:
+	 void setlength(int L) // overloaded Member Function,Mutator function,can be access outside the class with class object 
+	 {
+		 Length = L;
+	 }
+	 void setwidth(int W) 
+	 {
+		 Width = W;
+	 }
+	  int getlength() const// Member Function,accessor function,can be access outside the class with class object 
+	 {                    // Restricted to change the value of length.
+		 return Length;
+	 }
+	  int getwidth() const
+	 {
+		 return Width;
+	 }
+ };          // don't forget to put the semicolon here 
+ int main()
+ {
+	  int l=10, w=20;
+	 Rectangle R1;  // Creating object of the Rectangle class R1
+	 cout << "\nEnter Length::";
+	 cin >> l;
+	 cout << "\n Enter Width::";
+	cin >> w;
+	 R1.setlength(l);// calling mutator function to set the value of length
+	 R1.setwidth(w);// calling mutator function to set the value of width
+
+	 cout << "\nThe Length of the Rectangle::" << R1.getlength();// accesing accesor function
+	 
+	 //Or we can store returned data in a seperate variale to display
+	 int wi = R1.getwidth();
+	 cout << "\nThe width of the Rectangle::" <<wi;
+	
+
+ }

@@ -1,0 +1,65 @@
+1. Scope resulation Operator
+   Returntype   class_name:: Function_name()
+  -> Used to define the member function outside the class
+
+2. Inline Member function
+     declaration and defination of member function is within a class.Normally we do when 
+     there is small body of the function otherwise we do defination outside the class by using 
+    scope resulation operator
+
+    Performance: 
+      The compiler does many things when the function calls like
+       -> match the passing argument list
+      -> store the return address of the function
+   So when we make the function inline then it ignores all these things and replace the function 
+   statment where the function call instead of doing to match and store the address of the
+   function
+
+   The compiler consider the function inline if it is hardly consisted on one or two simple 
+  statment otherwise not even you make it inline .
+     To make function you can use inline keyword before the function return type of the function
+     
+  
+3. Constructors
+    -> Automatically call on object creation ,No return type,Name of the class
+  Types:
+         Default Cosntructor:
+               -> Takes no argument, if not defined then compiler impilcitly defined.
+         OverLoaded Constructor:
+               -> Passing argument constructor
+              -> can be overload many constructors with following manner
+                        --> constructor with number of different parameters
+                       -->  Constructor with changing sequence of parametrs with diff datatypes
+
+         Constructor with default argument
+              -> we can set the default value of the arguments
+             -> able to create object with intializing with default value
+            -> Its also known as default constructor
+
+4. Classes with No Default Constructor
+
+When all of a class’s constructors require arguments, then the class does not have a default 
+constructor. In such a case you must pass the required arguments to the constructor when 
+creating an object. Otherwise, a compiler error will result. 
+
+5. Destructors
+     -> automatically call when object goes out of scope
+     -> used to release  the memory from dynamic variables
+      -> no return type ,used ~(tilde) sign ,name same as name of the class
+     -> There is just one destructor in a class
+6. Function Overloading:
+        --> A function having arguments
+       
+      Default argument function:
+            -> can have default arguments
+
+    Only One Default Constructor and One Destructor:
+When an object is defined without an argument list for its constructor, the compiler automatically calls the default constructor. For this reason, a class may have only one default 
+constructor. If there were more than one constructor that could be called without an argument, the compiler would not know which one to call by default. 
+Remember, a constructor whose parameters all have a default argument is considered a 
+default constructor. It would be an error to create a constructor that accepts no parameters 
+along with another constructor that has default arguments for all its parameters. In such a 
+case the compiler would not be able to resolve which constructor to execute. 
+Classes may also only have one destructor. Because destructors take no arguments, the 
+compiler has no way to distinguish different destructors. 
+

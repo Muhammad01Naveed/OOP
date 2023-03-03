@@ -1,0 +1,63 @@
+#include<iostream>
+using namespace std;
+
+//input function
+int* input(int&size )
+{
+	cout << "\nEnter size of the array";
+	cin >> size;
+	int* arr = new int[size];
+	for (int i = 0; i < size; i++)
+	{
+		cin>> *(arr + i);
+	}
+	return  arr;
+}
+void output(int *arr,int& size) {
+	for (int i = 0; i < size; i++)
+	{
+		cout << *(arr + i) << "\t";
+	}
+}
+
+int *compressarray(int* arr, int& size)
+{
+	int c = 0;
+	//compress array by eliminating odd numbers from array
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] % 2 == 0)
+		{
+			c++;
+		}
+		
+	}
+	int* arrnew = new int[c];
+	c = 0;
+	for (int i = 0; i < 5; i++)
+	{
+		if (arr[i] % 2 == 0)
+		{
+			arrnew[c] = arr[i];
+			c++;
+		}
+
+	}
+	size = c;
+	delete[]arr;
+	return arrnew;
+}
+void main()
+{
+	//lecture 04
+	//working with 1D Dynamic  array
+	int size = 0;
+	int* p = nullptr;
+	p = input(size);
+	output(p,size);
+	cout << "\ncompressed array";
+	p=compressarray(p, size);
+	output(p, size);
+	delete[] p; //deleting dynamic array;
+
+}

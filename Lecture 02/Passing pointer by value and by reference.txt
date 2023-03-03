@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+//passing by value
+void passbyvalue(int *p)
+{
+	cout << "\nI have received value:" << *p;
+}
+
+//passing by value
+void passbyreference(int*& p)
+{
+	cout << "\nI am working as alias for actual variable:" << *p;
+}
+
+//returning address of variable
+int* returnaddress(int* p) {
+	int t = 10;
+	p = &t;
+	return p;
+	// or also valid
+	return &t;
+}
+int main()
+{
+	//Lecture 02
+	// Passing pointer to function by value and by refrence
+	int y = 11;
+	int* p = &y;
+	passbyvalue(&y);
+	//OR
+	passbyvalue(p);
+
+	passbyreference(p);
+	passbyreference(&y); //Not allowed because &y itself has not identity
+
+
+	int* p1 = returnaddress(p);
+	system("pause");
+	return 0;
+}
